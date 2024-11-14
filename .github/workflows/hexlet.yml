@@ -4,12 +4,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
         with:
           node-version: '18.x'
           cache: 'npm'
       - run: make setup
       - run: make test
       - run: make lint
-      - uses: hexlet-components/hello-from-hexlet-action
 
+      - name: Print Hello from Hexlet
+        uses: hexlet-components/hello-from-hexlet-action@release
